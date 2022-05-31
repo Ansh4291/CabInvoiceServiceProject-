@@ -48,4 +48,20 @@ public class InvoiceServiceTest {
         Assertions.assertEquals(expectedInvoiceSummary, summary);
     }
 
+    @Test
+    public void GivenDistanceAndTimeForNormal_ShouldReturnTotalFare(){
+        double distance = 2.0;
+        int time = 5;
+        double totalfare = RideType.CalculateFareNormal(distance,time);
+        Assertions.assertEquals(25 ,totalfare , 0.0);
+    }
+
+    @Test
+    public void GivenDistanceAndTimeForPremimum_ShouldReturnTotalFare(){
+        double distance = 3.0;
+        int time = 10;
+        double totalfare = RideType.CalculateFarePER(distance,time);
+        Assertions.assertEquals(65 ,totalfare , 0.0);
+    }
+
 }
